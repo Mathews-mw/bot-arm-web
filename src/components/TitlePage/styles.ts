@@ -10,4 +10,8 @@ export const Container = styled('div', {
 export const Title = styled('h1', {
 	fontWeight: '$medium',
 	fontSize: '$2xl',
+
+	'@bp2': {
+		fontSize: '$lg',
+	},
 });

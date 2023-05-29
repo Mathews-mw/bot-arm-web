@@ -8,9 +8,10 @@ interface INavLinkProps extends LinkProps {
 	children: ReactElement;
 	href: string;
 	getUrlPath?: (urlPath: string) => void;
+	onCloseDrawer: () => void;
 }
 
-export function NavLink({ children, getUrlPath, href, ...rest }: INavLinkProps) {
+export function NavLink({ children, getUrlPath, href, onCloseDrawer, ...rest }: INavLinkProps) {
 	const { asPath } = useRouter();
 
 	let isActive = false;
@@ -24,7 +25,7 @@ export function NavLink({ children, getUrlPath, href, ...rest }: INavLinkProps) 
 	}
 
 	return (
-		<LinkContainer>
+		<LinkContainer onClick={onCloseDrawer}>
 			<Link href={href} className={isActive ? 'activeLink' : ''} {...rest}>
 				{children}
 			</Link>

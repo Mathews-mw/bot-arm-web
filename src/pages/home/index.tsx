@@ -7,14 +7,16 @@ import { CardController } from './CardController';
 
 import { Container } from './styles';
 import { Cog, Joystick, Combine, Unplug } from 'lucide-react';
+import useDeviceSize from '@/hooks/useWindowSize';
 
 export default function Home() {
+	const router = useRouter();
+	const { width } = useDeviceSize();
+
 	const [turOnBot, setTurOnBot] = useState(false);
 	const [isBotConnected, setIsBotConnected] = useState(false);
 	const [turOnJoysticks, setTurOnJoysticks] = useState(false);
 	const [isJoysticksConnected, setIsJoysticksConnected] = useState(false);
-
-	const router = useRouter();
 
 	function handlerStartupBot(turon: boolean) {
 		setTurOnBot(turon);
@@ -44,7 +46,7 @@ export default function Home() {
 	return (
 		<Container>
 			<CardController title='Iniciar' onClick={() => handlerStartupBot(!turOnBot)} isActive={isBotConnected}>
-				<Cog size={128} />
+				<Cog size={width >= 768 ? 128 : 42} />
 			</CardController>
 
 			<CardController
@@ -54,15 +56,15 @@ export default function Home() {
 				}}
 				isActive={isJoysticksConnected}
 			>
-				<Joystick size={128} />
+				<Joystick size={width >= 768 ? 128 : 42} />
 			</CardController>
 
 			<CardController title='Controlar por comandos' onClick={() => router.push('/control')}>
-				<Combine size={128} />
+				<Combine size={width >= 768 ? 128 : 42} />
 			</CardController>
 
 			<CardController title='Desconectar' onClick={() => {}}>
-				<Unplug size={128} />
+				<Unplug size={width >= 768 ? 128 : 42} />
 			</CardController>
 		</Container>
 	);

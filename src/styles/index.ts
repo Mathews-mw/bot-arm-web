@@ -92,4 +92,8 @@ export const { config, css, styled, globalCss, keyframes, getCssText, theme, cre
 			full: '99999px',
 		},
 	},
+
+	media: {
+		bp2: '(max-width: 768px)',
+	},
 });

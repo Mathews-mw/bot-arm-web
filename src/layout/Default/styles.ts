@@ -9,6 +9,15 @@ export const LayoutContainer = styled('div', {
 	gridGap: '1rem',
 
 	height: '100vh',
+
+	'@bp2': {
+		display: 'grid',
+		position: 'relative',
+
+		gridTemplateAreas: `"header header" "main main" "footer footer"`,
+		gridTemplateRows: '3.75rem 1fr 2rem',
+		gridTemplateColumns: 'auto 1fr',
+	},
 });
 
 export const HeaderContainer = styled('header', {
@@ -38,8 +47,20 @@ export const MainContainer = styled('main', {
 	maxWidth: '100%',
 	margin: '0 auto 10rem',
 	padding: '0 5rem',
+
+	'@bp2': {
+		width: '100%',
+		maxWidth: '100%',
+		margin: '0 auto 2rem',
+		padding: '0 1rem',
+	},
 });
 
 export const FooterContainer = styled('footer', {
 	gridArea: 'footer',
+});
+
+export const DrawerContainer = styled('div', {
+	width: '100%',
+	height: '100vh',
 });

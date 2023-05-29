@@ -4,6 +4,9 @@ export const CardContainer = styled('div', {
 	display: 'flex',
 	flexDirection: 'column',
 
+	justifyContent: 'center',
+	alignItems: 'center',
+
 	padding: '1rem',
 
 	backgroundColor: '$gray600',
@@ -11,10 +14,16 @@ export const CardContainer = styled('div', {
 	boxShadow: 'rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px',
 
 	cursor: 'pointer',
+
+	'@bp2': {
+		padding: 0,
+		minHeight: '120px',
+	},
 });
 
 export const Title = styled('h3', {
 	fontWeight: '$medium',
+	textAlign: 'center',
 
 	variants: {
 		cardStatus: {
@@ -26,10 +35,21 @@ export const Title = styled('h3', {
 				color: '$gray200',
 			},
 		},
+
+		size: {
+			normal: {
+				fontSize: '28px',
+			},
+
+			small: {
+				fontSize: '10px',
+			},
+		},
 	},
 
 	defaultVariants: {
 		cardStatus: 'disabled',
+		size: 'normal',
 	},
 });
 
